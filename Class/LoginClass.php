@@ -57,5 +57,64 @@
 			return (mysql_num_rows($result) >0) ? true : false;
 			
 		}
+		
+		public static function insert_into_login($postarray)
+		{
+			global $database;
+			//de datum
+			date_default_timezone_set("Europe/Amsterdam");
+			$date  = date("y-m-d H:i:s");
+			// MD5 hash van email en datum/tijd.
+			$temp_password = MD5($date.$postarray['Email']);
+			
+			
+			$query = "INSERT INTO `login`(
+											`ID`,
+											`Username`,
+											`Password`,
+											`Userrole`,
+											`Activated`,
+											`Datum`)
+									VALUES(
+											Null,
+											'".$postarray['Email']."',
+											'".$temp_password."',
+											'Customer',
+											'No',
+											'".$date."')";
+											
+			$database->fire_query($query);
+			
+			$query ="SELECT `ID` FROM `login` WHERE Username ='".$postarray['Email']."'";
+			echo array_shift(self::find_by_sql($query))->ID;
+			$query = "INSERT INTO `user` (`ID`,
+										  `Firstname`,
+										  `Tussenvoegsel`,
+										  `Surname`,
+										  `Address`,
+										  `Addressnumber`,
+										  `City`,
+										  `Zipcode`,
+										  `Country`,
+										  `Tel`,
+										  `Mtel`)
+									VALUES
+										 ('".$ID."',
+										  '".$postarray['Firstname']."',
+										  '".$postarray['Tussenvoegsel']."',
+										  '".$postarray['Surname']."',
+										  '".$postarray['Address']."',
+										  '".$postarray['Addressnumber']."',
+										  '".$postarray['City']."',
+										  '".$postarray['Zipcode']."',
+										  '".$postarray['Country']."',
+										  '".$postarray['Tel']."',
+										  '".$postarray['Mtel']."')";
+			//echo $query;
+			$database->fire_query($query);
+		}
+		
+		
+		
 	}
 ?>

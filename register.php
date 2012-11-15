@@ -5,12 +5,12 @@ if (isset($_POST['submit']))
 	//code om gegevens op te slaan.
 	if (LoginClass::Email_exists($_POST['Email']))
 	{
-		echo "staat in db";
+		echo "Dit emailadres bestaat al. u wordt terug gestuurd";
+		header("refresh:4;url=register.php");
 	}
 	else
 	{
-		echo "Dit emailadres bestaat al. u wordt terug gestuurd";
-		header("refresh:4;url=register.php");
+		LoginClass::insert_into_login($_POST);
 	}
 }
 else
