@@ -1,0 +1,12 @@
+<NotepadPlus>
+    <Session activeView="0">
+        <mainView activeIndex="3">
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="495" startPos="162" endPos="162" selMode="0" lang="PHP" encoding="-1" filename="D:\download\progama\wamp\www\2012-2013\block2\Config\config.php" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="1199" startPos="612" endPos="602" selMode="0" lang="PHP" encoding="-1" filename="D:\download\progama\wamp\www\2012-2013\block2\Class\MySqlDatabaseClass.php" />
+            <File firstVisibleLine="0" xOffset="0" scrollWidth="616" startPos="95" endPos="58" selMode="0" lang="PHP" encoding="-1" filename="D:\download\progama\wamp\www\2012-2013\block2\index.php" />
+            <File firstVisibleLine="59" xOffset="0" scrollWidth="990" startPos="2085" endPos="2085" selMode="0" lang="PHP" encoding="-1" filename="D:\download\progama\wamp\www\2012-2013\block2\Class\LoginClass.php" />
+            <File firstVisibleLine="40" xOffset="0" scrollWidth="726" startPos="1348" endPos="1353" selMode="0" lang="PHP" encoding="-1" filename="D:\download\progama\wamp\www\2012-2013\block2\register.php" />
+        </mainView>
+        <subView activeIndex="0" />
+    </Session>
+</NotepadPlus>
