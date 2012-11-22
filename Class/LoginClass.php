@@ -156,5 +156,15 @@
 			mail( $ontvanger, $onderwerp, $bericht, $headers);
 		}
 		
+		public static function Update_password($Email, $password)
+		{
+			global $database;
+			$query = "UPDATE `login`
+					 SET `Password`='".$password."',
+						 `Activated` = 'Yes'
+					 WHERE `Username` = '".$Email."'";
+			//echo $query; exit();	 
+			$database->fire_query($query);
+		}
 	}
 ?>
