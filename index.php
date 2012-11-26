@@ -1,23 +1,30 @@
-<?php
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Jumbo games</title>
+		
+		<link rel="stylesheet" type="text/css" href="./css/opmaak.css" />
+	</head>
 
-	require_once("class/MySqlDatabaseClass.php");
-	require_once("class/LoginClass.php");
-	
-	
-	$query ="INSERT INTO `Login`( `ID`,
-								   `Username`,
-								   `Password`,
-								   `Userrole`,
-								   `Activated`)
-					VALUES		( NULL,
-								'Sjaak@live.nl',
-								'123',
-								'Sjaak',
-								'Yes')";
-	
-	//$database->fire_query($query);
-	
-	
-	LoginClass::find_all();
- ?>
-dit is een test.
+	<body>
+		<div id="container">
+			<div id="banner">
+				<?php include("banner.php");?>
+			<div id='link'>
+				<?php include("link.php"); ?>
+			</div>
+			</div>
+			
+			<div id="content">
+				<?php include("navigation.php")?>
+			</div>
+			
+			<div id="footer">
+				<?php include("footer.php"); ?>
+			</div>
+				
+		</div>
+	</body>
+
+
+</html>

@@ -139,7 +139,7 @@
 			$bericht   = "Geachte heer/mevrouw <b>".$Tussenvoegsel." ".$Surname."</b>,<br /> <br />
 			voor dat u kan inloggen moet u account nog worden geactiveerd.<br />
 			klik hier voor op de onderstaandelink.<br /> <br />
-			<a href='http://localhost/2012-2013/block2/activatie.php?em=".$Email."&pw=".$Password."'>activeer account</a><br />
+			<a href='http://localhost/2012-2013/block2/index.php?content=activatie&em=".$Email."&pw=".$Password."'>activeer account</a><br />
 			Met vriendelijke groet, <br />
 			<br />
 			Sjaak <br />";
@@ -166,5 +166,26 @@
 			//echo $query; exit();	 
 			$database->fire_query($query);
 		}
+		
+		public static function check_email_password_exists($Email,$password)
+		{
+			$query ="SELECT * FROM `login`
+					 WHERE `Username` = '".$Email."'
+					 AND `password` ='".$password."'";
+			$record=self::find_by_sql($query);
+			//ternary operator
+			return (sizeof($record) >0) ? true : false;
+			
+		}
+		
+		public static function check_activated($Email)
+		{
+			$query ="SELECT * FROM `login`
+			WHERE `Username`='".$Email."'";
+			$record=self::find_by_sql($query);
+			//ternary operator
+			return ($record[0]->Activated == 'yes')? true : false;	
+		}
+		
 	}
 ?>

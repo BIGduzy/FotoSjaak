@@ -1,0 +1,155 @@
+body
+{
+	font-family:inherit;
+	font-size:100%;
+	background-color: #0FB3C2;
+	color:RGBA(255,255,255,1);
+}
+
+#container
+{	
+	margin-left:auto;
+	margin-right:auto;
+	padding:0px 0px;
+	border:10px solid white;
+	border-radius:40px;
+	margin-top:30px;
+	min-height:1200px;
+	max-width:940px;
+}
+
+#banner,#footer
+{
+	font-size:14px;
+	text-align:center;
+	background-color:RGBA(255,15,15,0.90);
+	
+}
+#b
+{
+	border:3px solid white;
+	border-radius:30px 30px 30px 30px;
+	position:relative;
+	top:50px;
+	margin:auto;
+	max-width:300px;
+	font-size:28px;
+	text-shadow: 5px 5px 5px black;
+}
+
+#banner
+{
+	border-radius:30px 30px 0px 0px;
+	height:140px;
+}
+#footer
+{
+	border-radius:0px 0px 30px 30px;
+	height:300px;
+}
+
+#content
+{
+	padding:0px 0px;
+	font-size:16px;
+	position:relative;
+	border:0px solid black;
+	text-align:center;
+	background-color:RGBA(235,235,255,0.95);
+	color:RGBA(0,0,0,0.95);
+	min-height:760px;
+}
+
+#home
+{
+	background-image:url(./jumbobg.jpg);
+	background-position:center top;
+	background-repeat:no-repeat;
+	min-height:760px;	
+}
+
+#title
+{
+	font-size:28px;
+	text-shadow: 5px 5px 5px #FF0000;
+}
+
+#logo
+{
+	position:relative;
+	left:17px;
+	top:17px;
+	border:0px solid black;
+	width:0px;
+	height:0px;
+}
+img#banner
+{
+	width:90px;
+	height:90px;
+}
+
+#link
+{
+	position:relative;
+	left:425px;
+	border:0px solid black;
+	width:600px;
+	height:100px;
+}
+
+#login
+{
+	background-image:url(./olifant.jpg);
+	background-position:center top;
+	background-repeat:no-repeat;
+	min-height:760px;
+}
+
+a:link{color:RBGA(2,0,81,0.75);}
+a:link{text-decoration:none;}
+a:visited{text-decoration:none; color:RGBA(1,1,255,0.75);}
+a:hover{text-decoration:underline; color:RGBA(210,0,0,0.6);}
+a:active{text-decoration:underline;	color:RGBA(210,0,0,0.6)}
+
+#FAQ table,tr,td, th
+{
+	border:collapse:collapse;
+	margin:auto;
+	text-align:left;
+}
+#FAQ table
+{
+	border-collapse: collapse;
+	background-color:RGBA(255,255,255,0.90);
+	color:RGBA(0,0,0,0.9);
+}
+#FAQ td,tr,th
+{
+	padding:0px;
+	border: 0px solid black;
+}
+#table table,tr,td
+{
+	border:collapse:collapse;
+	margin:auto;
+	text-align:left;	
+}
+#table table
+{
+	border-radius:30px 30px 0px 0px;
+	border-collapse: collapse;
+	background-color:RGBA(255,255,255,0.90);
+	color:RGBA(0,0,0,0.9);
+	
+}
+#table td,tr,th
+{
+	padding-right:3px;
+	border: 0px solid black;
+}
+#spikkels img
+{
+	width:50px;
+	height:50px;
+}

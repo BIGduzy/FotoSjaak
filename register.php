@@ -6,18 +6,21 @@ if (isset($_POST['submit']))
 	if (LoginClass::Email_exists($_POST['Email']))
 	{
 		echo "Dit emailadres bestaat al. u wordt terug gestuurd";
-		header("refresh:4;url=register.php");
+		header("refresh:4;url=index.php?content=register");
 	}
 	else
 	{
 		LoginClass::insert_into_login($_POST);
+		echo"Uw bent succesvol geregistreed.<br />
+			 u zal binnen enkele minuten een activatiemail ontvangen.";
+			 header("refresh:3;url=index.php?content=home");
 	}
 }
 else
 {
 ?>
 
-<form action='register.php' method='POST'>
+<form action='index.php?content=register' method='POST'>
 	<table>
 		<tr>
 			<td>Firstname</td>
