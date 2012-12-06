@@ -1,5 +1,6 @@
 <?php
 	require_once("./class/LoginClass.php");
+	require_once("./class/SessionClass.php");
 
 	if ( !empty($_POST['Username']) && !empty($_POST['Password']) )
 	{
@@ -7,6 +8,9 @@
 			{
 				if (LoginClass::check_activated($_POST['Username']))
 				{
+					$session->login(LoginClass::find_user($_POST));
+					echo $_SESSION['user_id'];
+					/*
 					$record = mysql_fetch_array($result);
 					switch($record["Rol"])
 					{
@@ -31,7 +35,7 @@
 						default:
 							header('location:index.php?content=login');
 							break;
-					}
+					}*/
 				
 				}
 				else
@@ -40,14 +44,13 @@
 					u wordt door gestuurd naar de login pagina.";
 					header("refrsh:3;index.php?content=login");
 				}
+			}	
+			else
+			{
+				echo"de opgegeven combinatie van uw email en wachtwoord is niet goed.
+				u word terug gestuurd";
+				header('refresh:4;url=index.php?content=login');
 			}
-			
-		else
-		{
-			echo"de opgegeven combinatie van uw email en wachtwoord is niet goed.
-			u word terug gestuurd";
-			header('refresh:4;url=index.php?content=login');
-		}
 	}
 	else
 	{

@@ -9,6 +9,10 @@
 		private $Userrole;
 		private $Activated;
 		
+		//properties
+		public function getID() { return $this->ID;}
+		public function getUsername() { return $this->Username;}
+		public function getUserrole() { return $this->Userrole;}
 		//Constructor
 		public function __construct()
 		{
@@ -185,6 +189,16 @@
 			$record=self::find_by_sql($query);
 			//ternary operator
 			return ($record[0]->Activated == 'yes')? true : false;	
+		}
+		
+		public static function find_user($postarray)
+		{
+			$query ="SELECT * FROM login WHERE
+			`Username` = '".$postarray['Username']."'
+			and `Password` = '".$postarray['Password']."'";
+			$user_array = self::find_by_sql($query);
+			$user = array_shift($user_array);
+			return $user;
 		}
 		
 	}
