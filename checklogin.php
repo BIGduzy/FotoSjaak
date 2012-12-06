@@ -4,39 +4,39 @@
 
 	if ( !empty($_POST['Username']) && !empty($_POST['Password']) )
 	{
-			if (LoginClass::check_email_password_exists($_POST['Username'],$_POST['Password']))
+			if ( LoginClass::check_email_password_exists($_POST['Username'], $_POST['Password']) )
 			{
-				if (LoginClass::check_activated($_POST['Username']))
+				
+				//echo LoginClass::check_if_activated($_POST['Username']);exit();
+				if ( LoginClass::check_if_activated($_POST['Username']) )
 				{
 					$session->login(LoginClass::find_user($_POST));
-					echo $_SESSION['user_id'];
-					/*
-					$record = mysql_fetch_array($result);
-					switch($record["Rol"])
+					
+					switch ($_SESSION['user_role'])
 					{
 						case 'Customer':
-						$_SESSION['ID'] = $record['ID'];
-						$_SESSION['Rol'] = 'klant';
-							header('location:index.php?content=customer');
-							break;
-							
-						case 'Sjaak':
-						$_SESSION['ID'] = $record['ID'];
-						$_SESSION['Rol'] = 'admin';
-							header('location:index.php?content=admin');
-							break;
-							
+							header("location: index.php?content=customerHome");
+						break;
+						
 						case 'Root':
-						$_SESSION['ID'] = $record['ID'];
-						$_SESSION['Rol'] = 'beheerder';
-							header('location:index.php?content=gebruiker');
-							break;
-							
+							header("location: index.php?content=rootHome");
+						break;
+						
+						case 'Sjaak':
+							header("location: index.php?content=sjaakHome");
+						break;
+						
+						case 'Developer':
+							header("location: index.php?content=developerHome");
+						break;
+						
 						default:
-							header('location:index.php?content=login');
-							break;
-					}*/
-				
+							header("location: index.php?content=hackerPage");
+						break;
+					}
+					
+					
+					
 				}
 				else
 				{

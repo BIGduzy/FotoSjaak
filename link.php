@@ -1,13 +1,15 @@
-	<a href='index.php?content=home'> home</a>
+
 	<?php
-		if ( isset($_SESSION['Rol']))
+		if ( isset($_SESSION['user_role']))
 		{
 			
-			switch ($_SESSION['Rol'])
+			switch ($_SESSION['user_role'])
 			{
-				case 'Custommer':
+				case 'Customer':
 					echo"
+							<a href='index.php?content=customerHome'> home</a>
 							<a href='index.php?content=logout'>uitloggen</a>
+							<a href='index.php?content=opdracht'>Opdracht plaatsen</a>
 							<a href='index.php?content=FAQ_ned'>FAQ</a>";
 				break;
 				
@@ -21,6 +23,8 @@
 							<a href='index.php?content=logout'>uitloggen</a>";	 
 				break;
 				
+				case 'Deceloper':
+				break;
 				default:
 				break;
 		}

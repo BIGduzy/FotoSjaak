@@ -16,11 +16,11 @@ class SessionClass
 	
 	public function checklogin()
 	{
-		if (isset($_SESSION['User_id']))
+		if (isset($_SESSION['user_id']))
 		{
-			$this->user_id = $_SESSIOn['user_id'];
-			$this->user_name = $_SESSIOn['user_name'];
-			$this->user_role = $_SESSIOn['user_role'];
+			$this->user_id = $_SESSION['user_id'];
+			$this->user_name = $_SESSION['user_name'];
+			$this->user_role = $_SESSION['user_role'];
 			$this->logged_in = true;
 		}
 		else
@@ -34,13 +34,13 @@ class SessionClass
 	
 	public function login($user)
 	{
-		$this->user_id=$_SESSION['user_is'] = $user->getID();
+		$this->user_id=$_SESSION['user_id'] = $user->getID();
 		$this->user_id=$_SESSION['user_name'] = $user->getUsername();
 		$this->user_id=$_SESSION['user_role'] = $user->getUserrole();
 		$this->logged_in=true;
 	}
 	
-	public function logout($user)
+	public function logout()
 	{
 		session_destroy();
 		$this->logged_in = false;

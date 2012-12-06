@@ -11,6 +11,7 @@
 			<div id="banner">
 				<?php include("banner.php");?>
 			<div id='link'>
+				<?php include("./class/SessionClass.php");  ?>
 				<?php include("link.php"); ?>
 			</div>
 			</div>

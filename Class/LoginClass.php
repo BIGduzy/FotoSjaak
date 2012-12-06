@@ -175,25 +175,26 @@
 		{
 			$query ="SELECT * FROM `login`
 					 WHERE `Username` = '".$Email."'
-					 AND `password` ='".$password."'";
+					 AND `Password` ='".$password."'";
 			$record=self::find_by_sql($query);
 			//ternary operator
 			return (sizeof($record) >0) ? true : false;
 			
 		}
 		
-		public static function check_activated($Email)
-		{
-			$query ="SELECT * FROM `login`
-			WHERE `Username`='".$Email."'";
-			$record=self::find_by_sql($query);
-			//ternary operator
-			return ($record[0]->Activated == 'yes')? true : false;	
+		 public static function check_if_activated($Email)	
+		 {	
+			$query = "SELECT * FROM `login`	
+								WHERE `Username` = '".$Email."'";	
+			$record = self::find_by_sql($query);
+			//var_dump($record);exit();
+			//Ternary operator, als het account is geactiveerd return true, anders false
+			return ($record[0]->Activated == 'Yes') ? true : false; 	
 		}
 		
 		public static function find_user($postarray)
 		{
-			$query ="SELECT * FROM login WHERE
+			$query ="SELECT * FROM `login` WHERE
 			`Username` = '".$postarray['Username']."'
 			and `Password` = '".$postarray['Password']."'";
 			$user_array = self::find_by_sql($query);
