@@ -8,6 +8,7 @@
 		<script style='text/javascript' src='./js/script.js'></script>
 		<script style='text/javascript' src='./Jquery/jquery-1.8.3.js'></script>
 		<script style='text/javascript' src='./Jquery/jquery-ui-1.9.2.custom.js'></script>
+		<script style='text/javascript' src='./Jquery/jquery.validate.js'></script>
 	</head>
 
 	<body>
