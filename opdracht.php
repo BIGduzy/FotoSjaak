@@ -1,16 +1,7 @@
 <script type='text/javascript'>
 $(function() {
         $( ".datepicker" ).datepicker();
-		$( ".datepicker" ).datepicker("option", "dateFormat","DD, d MM, yy");
-		$("#eventForm").validate({
-			messages :{
-				order_short:'<p>Dit veld is niet ingevult.</p>'
-				order_long:'<p>Dit veld is niet ingevult.</p>'
-			}
-		});
-    });
-	
-		
+		$( ".datepicker" ).datepicker("option", "dateFormat","DD, d MM, yy");		
 </script>
 <?php
 	$option="<option value=''>--aantal foto's--</option>";

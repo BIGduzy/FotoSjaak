@@ -1,5 +1,6 @@
 <?php
 	require_once("MySqlDatabaseClass.php");
+	require_once("UserClass.php");
 	
 	class OrderClass
 	{
@@ -80,8 +81,39 @@
 										'no')";
 										
 			$database->fire_query($query);
+			self::send_orderActivation_Email($postarray);
 			echo "Uw opdracht is ontvangen. u krijgt een bevestegingsmail toegestuurd. Nadat u op de <br/>
-			befestegings link heeft geklikt ";
+			befestegings link heeft geklikt is de opdracht definitief";
+			header("refresh:4;url=index.php?content=customerHome");
+		}
+		
+		public static function send_orderActivation_Email($postarray)
+		{
+			$user = UserClass::find_name();
+			
+			
+			$carbonCopy = "sjaakie1984@hotmail.com";
+			$blindCarbonCopy ="info@belastingdienst.nl";
+			$ontvanger = $Email;
+			$onderwerp = "Welcome by FotoSjaak";
+			
+			$bericht   = "Geachte heer/mevrouw <b>".$user->getField("Tussenvoegsel")." ".$user->getField("Surname")."</b>,<br /> <br />
+			voor dat u kan inloggen moet u account nog worden geactiveerd.<br />
+			klik hier voor op de onderstaandelink.<br /> <br />
+			<a href='http://localhost/2012-2013/block2/index.php?content=activatie&em=".$Email."&pw=".$Password."'>activeer account</a><br />
+			Met vriendelijke groet, <br />
+			<br />
+			Sjaak <br />";
+			
+			$headers   = "From: info@fotosjaak.nl\r\n";
+			$headers   .= "Reply-To: info@fotosjaak.nl";
+			$headers   .= "Cc: ".$carbonCopy."\r\n";
+			$headers   .= "Bcc: ".$blindCarbonCopy."\r\n";
+			$headers   .= "X-mailer: PHP/".phpversion()."\r\n";
+			$headers   .= "MINE-version: 1.0\r\n";
+			$headers   .= "Content-Type: text/html; charset=iso-8859-1\r\n";
+		
+			mail( $ontvanger, $onderwerp, $bericht, $headers);
 		}
 	}
 	
