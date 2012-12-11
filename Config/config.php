@@ -8,6 +8,7 @@ switch ($database)
 			define("USERNAME",'root');
 			define("PASSWORD",'');
 			define("DATABASE",'FotoSjaakDB');
+			date_default_timezone_set("Europe/Amsterdam");
 	break;
 	case 1:		
 			//00webhost

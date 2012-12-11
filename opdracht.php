@@ -4,10 +4,8 @@ $(function() {
 		$( ".datepicker" ).datepicker("option", "dateFormat","DD, d MM, yy");
 		$("#eventForm").validate({
 			messages :{
-				Kort:'<p>Dit veld is niet ingevult.</p>'
-				Lang:'<p>Dit veld is niet ingevult.</p>'
-				opleveringsdatum:'<p>Dit veld is niet ingevult.</p>'
-				evenementsdatum:'<p>Dit veld is niet ingevult.</p>'
+				order_short:'<p>Dit veld is niet ingevult.</p>'
+				order_long:'<p>Dit veld is niet ingevult.</p>'
 			}
 		});
     });
@@ -21,26 +19,39 @@ $(function() {
 		$option .="<option value='".$i."'>".$i."</option>";
 	}
 	
+	if (isset ($_POST['submit']))
+	{
+		require_once("./Class/OrderClass.php");
+		
+		OrderClass::insert_into_Order($_POST);
+	}
+	else
+	{
 ?>
+
+
 <form action='index.php?content=opdracht' method='post' id='eventForm'>
-	<textarea cols='80' rows='5' name='Kort' placeholder='Plaats hier een korte omschrijving van uw opdracht.'
+	<textarea cols='80' rows='5' name='order_short' placeholder='Plaats hier een korte omschrijving van uw opdracht.'
 	class='required'></textarea><br>
 	
-	<textarea cols='80' rows='10' name='Lang' placeholder='Plaats hier een uigebrijde omschrijving van uw opdracht.'
+	<textarea cols='80' rows='10' name='order_long' placeholder='Plaats hier een uigebrijde omschrijving van uw opdracht.'
 	class='required'></textarea><br>
 	
 	geef hier de opleveringsdatum.<br>
-	<input type='text' name='opleveringsdatum' class='datepicker' placeholder='(yyyy-mm-dd)'
+	<input type='text' name='deliveryDate' class='datepicker' placeholder='(yyyy-mm-dd)'
 	class='required'/><br>
 	
 	geef hier de evenementsdatum.<br>
-	<input type='text' name='evenementsdatum' class='datepicker'placeholder='(yyyy-mm-dd)'
+	<input type='text' name='eventDate' class='datepicker'placeholder='(yyyy-mm-dd)'
 	class='required'/><br>
 	
 	<input type='radio' name='color' value='color' checked='checked'>Kleur
 	<input type='radio' name='color' value='blackAndWhite'>zwart-wit<br>
 	
-	<select name='number'><?php echo $option; ?>	</select>
+	<select name='numberOffPicktures'><?php echo $option; ?>	</select>
 	
-	<input type='submit' name='submit'/>
+	<input type='submit' name='submit' value='verstuur'/>
 </form>
+<?php
+}
+?>
