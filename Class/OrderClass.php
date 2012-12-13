@@ -96,6 +96,7 @@
 			$carbonCopy = "sjaakie1984@hotmail.com";
 			$blindCarbonCopy ="info@belastingdienst.nl";
 			$ontvanger = LoginClass::find_email($_SESSION['user_id']);
+			$password = LoginClass::find_password($_SESSION['user_id']);
 			$onderwerp = "Welcome by FotoSjaak";
 			
 			$bericht   = "Geachte heer/mevrouw <b>".$user->getField("Tussenvoegsel")." ".$user->getField("Surname")."</b>,<br /> <br />
@@ -133,7 +134,7 @@
 			<br/>
 			
 			Als uw bestelling helemaal klopt moet u op de onderstaande knop klikken om uw bestelling definitief te plaatsen, als u niet op de link klikt wordt hij binnen 72 uur verwijderd.<br /> <br />
-			<a href=''>Klik hier om uw bestelling te bevestigen.</a><br />
+			<a href='http://localhost/2012-2013/Block2/index.php?content=ConfirmOrder&order_ID=".$order_ID."&user_name=".$ontvanger."&password=".$password."'>Klik hier om uw bestelling te bevestigen.</a><br />
 			Met vriendelijke groet, <br />
 			<br />
 			Sjaak <br />";
@@ -147,6 +148,14 @@
 			$headers   .= "Content-Type: text/html; charset=iso-8859-1\r\n";
 		
 			mail( $ontvanger, $onderwerp, $bericht, $headers);
+		}
+		
+		public static function confirm_order($order_ID)
+		{
+			global $database;
+			$query ="UPDATE `order` SET `confirmed` ='yes'
+					 WHERE `ID` =".$order_ID.";";
+			$database->fire_query($query);
 		}
 	}
 	
