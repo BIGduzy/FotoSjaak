@@ -1,6 +1,6 @@
 <?php
 	//include 
-	require_once('/Config/config.php');
+	require_once('Config/config.php');
 
 	//Dit is de class definitie van de MySqlDatabase Class.
 	class MySqlDatabaseClass

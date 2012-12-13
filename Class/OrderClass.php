@@ -1,6 +1,7 @@
 <?php
 	require_once("MySqlDatabaseClass.php");
 	require_once("UserClass.php");
+	require_once("LoginClass.php");
 	
 	class OrderClass
 	{
@@ -53,6 +54,7 @@
 		
 		public static function insert_into_Order($postarray)
 		{
+			$date = date("Y-m-d H:i:s");
 			global $database;
 			$query ="INSERT INTO `order`(`ID`,
 										`user_id`,
@@ -75,32 +77,63 @@
 										'".$postarray['eventDate']."',
 										'".$postarray['color']."',
 										'".$postarray['numberOffPicktures']."',
-										'2012-11-12 14:31:00',
+										'".$date."',
 										'no',
 										'1234,56',
 										'no')";
 										
 			$database->fire_query($query);
-			self::send_orderActivation_Email($postarray);
+			$order_ID= mysql_insert_ID();
+			self::send_orderActivation_Email($postarray,$order_ID);
 			echo "Uw opdracht is ontvangen. u krijgt een bevestegingsmail toegestuurd. Nadat u op de <br/>
 			befestegings link heeft geklikt is de opdracht definitief";
 			header("refresh:4;url=index.php?content=customerHome");
 		}
 		
-		public static function send_orderActivation_Email($postarray)
+		public static function send_orderActivation_Email($postarray,$order_ID)
 		{
-			$user = UserClass::find_name();
-			
-			
+			$user = UserClass::find_name();			
 			$carbonCopy = "sjaakie1984@hotmail.com";
 			$blindCarbonCopy ="info@belastingdienst.nl";
-			$ontvanger = $Email;
+			$ontvanger = LoginClass::find_email($_SESSION['user_id']);
 			$onderwerp = "Welcome by FotoSjaak";
 			
 			$bericht   = "Geachte heer/mevrouw <b>".$user->getField("Tussenvoegsel")." ".$user->getField("Surname")."</b>,<br /> <br />
-			voor dat u kan inloggen moet u account nog worden geactiveerd.<br />
-			klik hier voor op de onderstaandelink.<br /> <br />
-			<a href='http://localhost/2012-2013/block2/index.php?content=activatie&em=".$Email."&pw=".$Password."'>activeer account</a><br />
+			Uw bestelling is ontvangen, hier onder kunt hem nog een laatste keer bekijken.<br />
+			<table>
+				<tr>
+					<td>Uw id nummer</td>
+					<td>".$order_ID."</td>
+				</tr>
+				<tr>
+					<td>Korte omschrijving van de opdracht</td>
+					<td>".$postarray['order_short']."</td>
+				</tr>
+				<tr>
+					<td>Uitgebrijde Omschrijving van de opdracht</td>
+					<td>".$postarray['order_long']."</td>
+				</tr>
+				<tr>
+					<td>Opleveringsdatum</td>
+					<td>".$postarray['deliveryDate']."</td>
+				</tr>
+				<tr>
+					<td>Evenementsdatum</td>
+					<td>".$postarray['eventDate']."</td>
+				</tr>
+				<tr>
+					<td>Kleur</td>
+					<td>".$postarray['color']."</td>
+				</tr>
+				<tr>
+					<td>Aantal foto's</td>
+					<td>".$postarray['numberOffPicktures']."</td>
+				</tr>
+			</table>
+			<br/>
+			
+			Als uw bestelling helemaal klopt moet u op de onderstaande knop klikken om uw bestelling definitief te plaatsen, als u niet op de link klikt wordt hij binnen 72 uur verwijderd.<br /> <br />
+			<a href=''>Klik hier om uw bestelling te bevestigen.</a><br />
 			Met vriendelijke groet, <br />
 			<br />
 			Sjaak <br />";

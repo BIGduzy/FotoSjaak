@@ -202,5 +202,12 @@
 			return $user;
 		}
 		
+		public static function find_email($ID)
+		{
+			$query =" SELECT * FROM `login` WHERE `ID` = '".$ID."'";
+			$user = self::find_by_sql($query);
+			$user = array_shift($user);
+			return $user->Username;
+		}
 	}
 ?>
