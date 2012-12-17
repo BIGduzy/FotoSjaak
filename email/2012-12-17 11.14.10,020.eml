@@ -1,0 +1,49 @@
+Date: Mon, 17 Dec 2012 11:14:10 +0100
+Subject: Welcome by FotoSjaak
+To: nick-b@live.nl
+X-PHP-Originating-Script: 0:OrderClass.php
+From: info@fotosjaak.nl
+Reply-To: info@fotosjaak.nlCc: sjaakie1984@hotmail.com
+X-mailer: PHP/5.3.13
+MINE-version: 1.0
+Content-Type: text/html; charset=iso-8859-1
+
+Geachte heer/mevrouw <b> Bout</b>,<br /> <br />
+			Uw bestelling is ontvangen, hier onder kunt hem nog een laatste keer bekijken.<br />
+			<table>
+				<tr>
+					<td>Uw id nummer</td>
+					<td>40</td>
+				</tr>
+				<tr>
+					<td>Korte omschrijving van de opdracht</td>
+					<td>kikkers</td>
+				</tr>
+				<tr>
+					<td>Uitgebrijde Omschrijving van de opdracht</td>
+					<td>kikkers in de woestijn</td>
+				</tr>
+				<tr>
+					<td>Opleveringsdatum</td>
+					<td>26-12-20122012</td>
+				</tr>
+				<tr>
+					<td>Evenementsdatum</td>
+					<td>25-12-20122012</td>
+				</tr>
+				<tr>
+					<td>Kleur</td>
+					<td>blackAndWhite</td>
+				</tr>
+				<tr>
+					<td>Aantal foto's</td>
+					<td>700</td>
+				</tr>
+			</table>
+			<br/>
+			
+			Als uw bestelling helemaal klopt moet u op de onderstaande knop klikken om uw bestelling definitief te plaatsen, als u niet op de link klikt wordt hij binnen 72 uur verwijderd.<br /> <br />
+			<a href='http://localhost/2012-2013/Block2/index.php?content=ConfirmOrder&order_ID=40&user_name=nick-b@live.nl&password=boemkool'>Klik hier om uw bestelling te bevestigen.</a><br />
+			Met vriendelijke groet, <br />
+			<br />
+			Sjaak <br />

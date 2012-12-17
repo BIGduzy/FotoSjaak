@@ -15,7 +15,8 @@
 				
 				case 'Sjaak':
 						echo"
-							<a href='index.php?content=logout'>uitloggen</a>";
+							<a href='index.php?content=logout'>uitloggen</a>
+							<a href='index.php?content=Orders'>Opdrachten</a>";
 				break;
 				
 				case 'Root':

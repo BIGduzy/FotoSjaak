@@ -158,6 +158,25 @@
 					 WHERE `ID` =".$order_ID.";";
 			$database->fire_query($query);
 		}
+		
+		public static function Find_orders()
+		{
+			global $database;
+			$query = "SELECT * FROM `order`,`user`
+								WHERE `order`.`user_ID` = `user_ID`";
+			$result = $database->fire_query($query);
+			while($object = mysql_fetch_object($result))
+			{
+				//var_dump($object);
+				echo $object->user_id."|".
+					 $object->Firstname."|".
+					 $object->Tussenvoegsel."|".
+					 $object->Surname."|".
+					 "<br />";
+			}
+			exit();
+		}
+		
 	}
 	
 

@@ -1,3 +1,38 @@
+
+
+<script type='text/javascript'>
+	$( function() {
+		$('#eventForm').validate({
+			rules: {
+				Firstname : 'required',
+				Surname : 'required',
+				Address : 'required',
+				Addressnumber : 'required',
+				City : 'required',
+				Zipcode : 'required',
+				Country : 'required',
+				Tel : 'required',
+				Mtel : 'required',
+				Email : 'required'
+			
+			},
+			messages : {
+				Firstname : '<p>U bent verplicht dit veld in te vullen</p>',
+				Surname : '<p>U bent verplicht dit veld in te vullen</p>',
+				Address : '<p>U bent verplicht dit veld in te vullen</p>',
+				Addressnumber : '<p>U bent verplicht dit veld in te vullen</p>',
+				City : '<p>U bent verplicht dit veld in te vullen</p>',
+				Zipcode : '<p>U bent verplicht dit veld in te vullen</p>',
+				Country : '<p>U bent verplicht dit veld in te vullen</p>',
+				Tel : '<p>U bent verplicht dit veld in te vullen</p>',
+				Mtel : '<p>U bent verplicht dit veld in te vullen</p>',
+				Email : '<p>U bent verplicht dit veld in te vullen</p>'
+				
+			}	
+		});
+	});
+</script>
+
 <?php
 require_once("class/LoginClass.php");
 if (isset($_POST['submit']))
@@ -20,7 +55,7 @@ else
 {
 ?>
 
-<form action='index.php?content=register' method='POST'>
+<form action='index.php?content=register' method='POST' id='eventForm'>
 	<table>
 		<tr>
 			<td>Firstname</td>

@@ -1,10 +1,3 @@
-<style type"text/css">
-	p.error
-	{
-	
-	
-	}
-
 <script type='text/javascript'>
 	$( function() {
 		$(".datepicker").datepicker({ dateFormat: "dd-mm-yyyy" });
@@ -27,6 +20,7 @@
 		});
 	});
 </script>
+
 <?php
 	$option="<option value=''>--aantal foto's--</option>";
 	for ($i =50; $i <= 1000; $i+=50)
