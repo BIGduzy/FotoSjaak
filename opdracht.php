@@ -1,12 +1,28 @@
+<style type"text/css">
+	p.error
+	{
+	
+	
+	}
+
 <script type='text/javascript'>
 	$( function() {
 		$(".datepicker").datepicker({ dateFormat: "dd-mm-yyyy" });
 		$('#eventForm').validate({
+			rules: {
+				order_short : 'required',
+				order_long : 'required',
+				deliveryDate : 'required',
+				eventDate : 'required',
+				numberOffPicktures : 'required'
+			
+			},
 			messages : {
 				order_short : '<p>U bent verplicht dit veld in te vullen</p>',
 				order_long : '<p>U bent verplicht dit veld in te vullen</p>',
 				deliveryDate : '<p>U bent verplicht dit veld in te vullen</p>',
-				eventDate : '<p>U bent verplicht dit veld in te vullen</p>'
+				eventDate : '<p>U bent verplicht dit veld in te vullen</p>',
+				numberOffPicktures : '<p>U bent verplicht dit veld in te vullen</p>'
 			}	
 		});
 	});
@@ -32,18 +48,18 @@
 
 <form action='index.php?content=opdracht' method='post' id='eventForm'>
 	<textarea cols='80' rows='5' name='order_short' placeholder='Plaats hier een korte omschrijving van uw opdracht.'
-	class='required'></textarea><br>
+	></textarea><br>
 	
 	<textarea cols='80' rows='10' name='order_long' placeholder='Plaats hier een uigebrijde omschrijving van uw opdracht.'
-	class='required'></textarea><br>
+	></textarea><br>
 	
 	geef hier de opleveringsdatum.<br>
 	<input type='text' name='deliveryDate' class='datepicker' placeholder='(dd-mm-yyyy)'
-	class='required'/><br>
+	/><br>
 	
 	geef hier de evenementsdatum.<br>
 	<input type='text' name='eventDate' class='datepicker'placeholder='(dd-mm-yyyy)'
-	class='required'/><br>
+	/><br>
 	
 	<input type='radio' name='color' value='color' checked='checked'>Kleur
 	<input type='radio' name='color' value='blackAndWhite'>zwart-wit<br>
