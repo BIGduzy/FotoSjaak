@@ -1,6 +1,6 @@
 <script type='text/javascript'>
 	$( function() {
-		$(".datepicker").datepicker({ dateFormat: "yy-mm-dd" });
+		$(".datepicker").datepicker({ dateFormat: "dd-mm-yyyy" });
 		$('#eventForm').validate({
 			messages : {
 				order_short : '<p>U bent verplicht dit veld in te vullen</p>',
@@ -22,6 +22,7 @@
 	{
 		require_once("./Class/OrderClass.php");
 		
+		
 		OrderClass::insert_into_Order($_POST);
 	}
 	else
@@ -37,11 +38,11 @@
 	class='required'></textarea><br>
 	
 	geef hier de opleveringsdatum.<br>
-	<input type='text' name='deliveryDate' class='datepicker' placeholder='(yyyy-mm-dd)'
+	<input type='text' name='deliveryDate' class='datepicker' placeholder='(dd-mm-yyyy)'
 	class='required'/><br>
 	
 	geef hier de evenementsdatum.<br>
-	<input type='text' name='eventDate' class='datepicker'placeholder='(yyyy-mm-dd)'
+	<input type='text' name='eventDate' class='datepicker'placeholder='(dd-mm-yyyy)'
 	class='required'/><br>
 	
 	<input type='radio' name='color' value='color' checked='checked'>Kleur

@@ -56,6 +56,7 @@
 		{
 			$date = date("Y-m-d H:i:s");
 			global $database;
+			
 			$query ="INSERT INTO `order`(`ID`,
 										`user_id`,
 										`order_short`,
@@ -73,8 +74,8 @@
 										'".$_SESSION['user_id']."',
 										'".$postarray['order_short']."',
 										'".$postarray['order_long']."',
-										'".$postarray['deliveryDate']."',
-										'".$postarray['eventDate']."',
+										'".date("Y-m-d",strtotime($postarray['deliveryDate']))."',
+										'".date("Y-m-d",strtotime($postarray['eventDate']))."',
 										'".$postarray['color']."',
 										'".$postarray['numberOffPicktures']."',
 										'".$date."',
