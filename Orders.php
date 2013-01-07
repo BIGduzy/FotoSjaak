@@ -1,23 +1,16 @@
-<?php
-	require_once("./Class/OrderClass.php");
-	
-	OrderClass::Find_orders();
-	
-	
-?>
+<?php	require_once("./Class/OrderClass.php"); ?>
 <table>
 	<form>
 		<tr>
-			<th>Klantnummer</th>
-			<th>Voornaam</th>
-			<th>Tussenvoegsel</th>
-			<th>Achternaam</th>
-			<th>Opdrachten</th>
+			<th>Opdracht</th>
+			<th>Datum</th>
+			<th>Aantal</th>
+			<th>Kleur/Zwart-wit</th>
+			<th>bevestigd</th>
+			<th>betaald</th>
 		</tr>
-		
-		<tr>
-		
-		</tr>
+		<?php echo OrderClass::Find_orders(); ?>
+	
 		
 	</form>
 </table>

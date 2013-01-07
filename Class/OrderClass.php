@@ -2,6 +2,8 @@
 	require_once("MySqlDatabaseClass.php");
 	require_once("UserClass.php");
 	require_once("LoginClass.php");
+	require_once("DateFormatClass.php");
+	require_once("DbFormatClass.php");
 	
 	class OrderClass
 	{
@@ -163,18 +165,50 @@
 		{
 			global $database;
 			$query = "SELECT * FROM `order`,`user`
-								WHERE `order`.`user_ID` = `user_ID`";
+					  WHERE `order`.`user_ID` = `user`.`ID`
+					  ORDER BY `user_ID";
+					  
 			$result = $database->fire_query($query);
+			$rows = "";
+			$previous = "";
 			while($object = mysql_fetch_object($result))
 			{
 				//var_dump($object);
-				echo $object->user_id."|".
-					 $object->Firstname."|".
-					 $object->Tussenvoegsel."|".
-					 $object->Surname."|".
-					 "<br />";
+				$current = $object->user_id;
+				if ($current != $previous)
+				{
+				$rows .= "<tr>
+							<td colspan='5'>id = [".$object->user_id."] "
+													.$object->Firstname." "
+													.$object->Tussenvoegsel." "
+													.$object->Surname."
+							</td>
+						  </tr>";
+				}
+				$previous = $current;
+				
+				$rows .= "<tr>
+						<td>".$object->order_short."</td>
+						<td>
+							Oplevering: ".DateFormat::change($object->deliveryDate)."<br />
+							Eventdatum: ".DateFormat::change($object->eventDate)."<br />
+							Plaatsing:  ".DateFormat::change($object->orderDate)."<br/>
+						</td>
+						<td>".$object->numberOffPicktures."</td>
+						<td>".DbFormat::translate_color($object->color)."</td>
+						<td>".DbFormat::translate_confirmed($object->confirmed)."</td>
+						<td>".DbFormat::translate_paid($object->paid)."</td>
+						<td>".$object->cost."</td>
+						<td>
+							<a href='index.php?content=upload_form&
+													customer={$object->user_id}&
+													order_id={$object->ID}'>
+								<img src='css/marker.png' alt='upload' />
+							</a>
+						</td>
+					  </tr>";
 			}
-			exit();
+			return $rows;
 		}
 		
 	}
