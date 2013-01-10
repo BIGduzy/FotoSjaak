@@ -8,7 +8,7 @@
 	class OrderClass
 	{
 		//fields
-		private $ID;
+		private $order_id;
 		private $user_id;
 		private $order_short;
 		private $order_long;
@@ -38,7 +38,7 @@
 			while ( $row = mysql_fetch_object($result))
 			{
 				$object = new OrderClass();
-				$object->ID = $row->ID;
+				$object->order_id = $row->order_id;
 				$object->user_id = $row->user_id;
 				$object->order_short = $row->order_short;
 				$object->deliveryDate = $row->deliveryDate;
@@ -59,7 +59,7 @@
 			$date = date("Y-m-d H:i:s");
 			global $database;
 			
-			$query ="INSERT INTO `order`(`ID`,
+			$query ="INSERT INTO `order`(`order_id`,
 										`user_id`,
 										`order_short`,
 										`order_long`,
@@ -137,7 +137,7 @@
 			<br/>
 			
 			Als uw bestelling helemaal klopt moet u op de onderstaande knop klikken om uw bestelling definitief te plaatsen, als u niet op de link klikt wordt hij binnen 72 uur verwijderd.<br /> <br />
-			<a href='http://localhost/2012-2013/Block2/index.php?content=ConfirmOrder&order_ID=".$order_ID."&user_name=".$ontvanger."&password=".$password."'>Klik hier om uw bestelling te bevestigen.</a><br />
+			<a href='http://localhost/2012-2013/Block2/index.php?content=ConfirmOrder&order_id=".$order_ID."&user_name=".$ontvanger."&password=".$password."'>Klik hier om uw bestelling te bevestigen.</a><br />
 			Met vriendelijke groet, <br />
 			<br />
 			Sjaak <br />";
@@ -157,7 +157,7 @@
 		{
 			global $database;
 			$query ="UPDATE `order` SET `confirmed` ='yes'
-					 WHERE `ID` =".$order_ID.";";
+					 WHERE `order_id` =".$order_ID.";";
 			$database->fire_query($query);
 		}
 		
@@ -165,7 +165,7 @@
 		{
 			global $database;
 			$query = "SELECT * FROM `order`,`user`
-					  WHERE `order`.`user_ID` = `user`.`ID`
+					  WHERE `order`.`user_ID` = `user`.`id`
 					  ORDER BY `user_ID";
 					  
 			$result = $database->fire_query($query);
@@ -188,6 +188,7 @@
 				$previous = $current;
 				
 				$rows .= "<tr>
+						<td>".$object->order_id."</td>
 						<td>".$object->order_short."</td>
 						<td>
 							Oplevering: ".DateFormat::change($object->deliveryDate)."<br />
@@ -202,7 +203,7 @@
 						<td>
 							<a href='index.php?content=upload_form&
 													customer={$object->user_id}&
-													order_id={$object->ID}'>
+													order_id={$object->order_id}'>
 								<img src='css/marker.png' alt='upload' />
 							</a>
 						</td>
