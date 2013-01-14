@@ -10,6 +10,7 @@
 							<a href='index.php?content=customerHome'> home</a>
 							<a href='index.php?content=logout'>uitloggen</a>
 							<a href='index.php?content=opdracht'>Opdracht plaatsen</a>
+							<a href='index.php?content=order_customer'>Geplaatste opdrachten</a>
 							<a href='index.php?content=FAQ_ned'>FAQ</a>";
 				break;
 				

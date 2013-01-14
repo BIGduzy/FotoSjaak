@@ -18,6 +18,7 @@
 		private $numberOffPicktures;
 		private $orderDate;
 		private $confirmed;
+		private $confirm_cost;
 		private $cost;
 		private $paid;
 		
@@ -47,6 +48,7 @@
 				$object->numberOffPicktures = $row->numberOffPicktures;
 				$object->orderDate = $row->orderDate;
 				$object->confirmed = $row->confirmed;
+				$object->confirm_cost = $row->confirm_cost;
 				$object->cost = $row->cost;
 				$object->paid = $row->paid;
 				$object_array[] = $object;
@@ -68,7 +70,8 @@
 										`color`,
 										`numberOffPicktures`,
 										`orderDate`,
-										`confirmed`, 
+										`confirmed`,
+										`confirm_cost`,
 										`cost`,
 										`paid`)
 										VALUES(
@@ -82,7 +85,8 @@
 										'".$postarray['numberOffPicktures']."',
 										'".$date."',
 										'no',
-										'1234,56',
+										'No',
+										'0,00',
 										'no')";
 										
 			$database->fire_query($query);
@@ -226,6 +230,60 @@
 			$query="UPDATE `order` SET `cost` = '{$cost}' WHERE `order_id`='{$order_id}'";
 			$database->fire_query($query);
 			echo "De prijs van de opdracht is weggeschreven naar de database. Er wordt een mailtje gestuurd naar de opdrachtgever.";
+			header("refresh:4;url=index.php?content=Orders");
+		}
+		
+		
+		public static function find_order_by_id()
+		{
+			global $database;
+			$query = "SELECT * FROM `order`,`user`
+					  WHERE `order`.`user_ID` = `user`.`id`
+					  AND `user`.`id` = '{$_SESSION['user_id']}'
+					  ORDER BY `user_ID";
+					  
+			$result = $database->fire_query($query);
+			$rows = "";
+			$previous = "";
+			while($object = mysql_fetch_object($result))
+			{
+				//var_dump($object);
+				$current = $object->user_id;
+				if ($current != $previous)
+				{
+				$rows .= "<tr>
+							<td colspan='5'>id = [".$object->user_id."] "
+													.$object->Firstname." "
+													.$object->Tussenvoegsel." "
+													.$object->Surname."
+							</td>
+						  </tr>";
+				}
+				$previous = $current;						
+				$rows .= "<tr>
+						<td>".$object->order_id."</td>
+						<td>".$object->order_short."</td>
+						<td>
+							Oplevering: ".DateFormat::change($object->deliveryDate)."<br />
+							Eventdatum: ".DateFormat::change($object->eventDate)."<br />
+							Plaatsing:  ".DateFormat::change($object->orderDate)."<br/>
+						</td>
+						<td>".$object->numberOffPicktures."</td>
+						<td>".DbFormat::translate_color($object->color)."</td>
+						<td>".DbFormat::translate_confirmed($object->confirmed)."</td>
+						<td>".DbFormat::translate_paid($object->paid)."</td>
+						<td><a href='index.php?content=confirm_price&order_id={$object->order_id}&cost={$object->cost}'>".$object->cost."</a></td>
+					  </tr>";
+			}
+			return $rows;
+		}
+		
+		public static function confirm_cost_by_order_id($order_id)
+		{
+			global $database;
+			$query = "UPDATE `order` SET `confirm_cost` = 'Yes' WHERE `order_id` = {$order_id}";
+			$database->fire_query($query);
+			echo "De prijs is bevestigt en u wordt door gestuurd naar de opdrachten pagina";
 			header("refresh:4;url=index.php?content=Orders");
 		}
 	}
