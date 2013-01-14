@@ -186,7 +186,15 @@
 						  </tr>";
 				}
 				$previous = $current;
-				
+						if ($object->cost == 0.00)
+						{
+							$cost = "<a href='index.php?content=price&user_id={$object->user_id}&order_id={$object->order_id}'>".$object->cost."</a>";
+						}
+						else
+						{
+							$cost = $object->cost;
+						}
+						
 				$rows .= "<tr>
 						<td>".$object->order_id."</td>
 						<td>".$object->order_short."</td>
@@ -199,7 +207,7 @@
 						<td>".DbFormat::translate_color($object->color)."</td>
 						<td>".DbFormat::translate_confirmed($object->confirmed)."</td>
 						<td>".DbFormat::translate_paid($object->paid)."</td>
-						<td>".$object->cost."</td>
+						<td>{$cost}</td>
 						<td>
 							<a href='index.php?content=upload_form&
 													customer={$object->user_id}&
@@ -212,6 +220,14 @@
 			return $rows;
 		}
 		
+		public static function update_cost_by_id($order_id,$cost)
+		{
+			global $database;
+			$query="UPDATE `order` SET `cost` = '{$cost}' WHERE `order_id`='{$order_id}'";
+			$database->fire_query($query);
+			echo "De prijs van de opdracht is weggeschreven naar de database. Er wordt een mailtje gestuurd naar de opdrachtgever.";
+			header("refresh:4;url=index.php?content=Orders");
+		}
 	}
 	
 
