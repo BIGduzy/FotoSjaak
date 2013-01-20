@@ -14,7 +14,7 @@ Bedrag: <?php echo $_GET['cost']; ?> euro
 
 <form action='index.php?content=confirm_price' method='POST'>
 	<input type='submit' name='submit' value='akkoord' />
-	<input type='hidden' name='order_id' value='<?php {$_GET["order_id"]; ?>' />
+	<input type='hidden' name='order_id' value='<?php echo $_GET["order_id"]; ?>' />
 </form>
 <?php
 }

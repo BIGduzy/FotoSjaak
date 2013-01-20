@@ -18,8 +18,8 @@
 		<tr>
 			<td><input type='submit' name='submit' value='verstuur' /></td>		
 		</tr>
-		<input type='hidden' name='user_id' value='<?php {$_GET["user_id"]; ?>' />
-		<input type='hidden' name='order_id' value='<?php {$_GET["order_id"]; ?>' />
+		<input type='hidden' name='user_id' value='<?php echo $_GET["user_id"]; ?>' />
+		<input type='hidden' name='order_id' value='<?php echo $_GET["order_id"]; ?>' />
 		
 		
 	</form>

@@ -44,33 +44,43 @@
 		{
 			$query = "SELECT * FROM `photo` WHERE `order_id` = '{$order_id}'";
 			$result = self::find_by_sql($query);
-			$i=0;
-			echo "<tr>";
-			foreach($result as $photo)
+			if (!empty($result))
 			{
-				if ($i != NUMBER_OF_PHOTO)
-				{
-					echo "	<td>
-								<img src='./fotos/{$user_id}/{$order_id}/thumbnail/tn_{$photo->photo_name}' alt='tn_{$photo->photo_name}' />
-								<div>
-									{$photo->photo_text}
-								</div>
-							</td>";
-					$i++;
-				}
-				else
-				{
-					echo "	<tr></tr>
-							<td>
-								<img src='./fotos/{$user_id}/{$order_id}/thumbnail/tn_{$photo->photo_name}' alt='tn_{$photo->photo_name}' />
-								<div>
-									{$photo->photo_text}
-								</div>
-							</td>";
 					$i=0;
-				}
+					echo "<tr>";
+					foreach($result as $photo)
+					{
+						if ($i != NUMBER_OF_PHOTO)
+						{
+							echo "	<td>
+										<img src='./fotos/{$user_id}/{$order_id}/thumbnail/tn_{$photo->photo_name}' alt='tn_{$photo->photo_name}' />
+										<div>
+											{$photo->photo_text}
+										</div>
+									</td>";
+							$i++;
+						}
+						else
+						{
+							echo "	</tr>
+									<tr>
+									<td>
+										<img src='./fotos/{$user_id}/{$order_id}/thumbnail/tn_{$photo->photo_name}' alt='tn_{$photo->photo_name}' />
+										<div>
+											{$photo->photo_text}
+										</div>
+									</td>";
+							$i=0;
+						}
+					}
+					echo"</tr>";
 			}
-			echo"</tr>";
+			else
+			{
+					echo "<tr>
+						<td>Er zijn nog geen foto's beschikbaar</td>
+					  </tr>";
+			}
 			
 		}
 	}

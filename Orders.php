@@ -2,13 +2,15 @@
 <table>
 	<form>
 		<tr>
-			<th>Opdracht</th>
-			<th>Datum</th>
-			<th>Aantal</th>
-			<th>Kleur/Zwart-wit</th>
-			<th>bevestigd</th>
-			<th>prijs_OK</th>
+			<th>ordernr.</th>
+			<th>opdracht</th>
+			<th>datum</th>
+			<th>aantal</th>
+			<th>kleur/zw</th>
 			<th>betaald</th>
+			<th>bevestigd</th>
+			<th>prijs</th>
+			<th>upload</th>
 			
 		</tr>
 		<?php echo OrderClass::Find_orders(); ?>
