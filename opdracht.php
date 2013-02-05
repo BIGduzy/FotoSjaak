@@ -1,6 +1,6 @@
 <script type='text/javascript'>
 	$( function() {
-		$(".datepicker").datepicker({ dateFormat: "dd-mm-yyyy" });
+		$(".datepicker").datepicker({ dateFormat: "dd-mm-yy" });
 		$('#eventForm').validate({
 			rules: {
 				order_short : 'required',

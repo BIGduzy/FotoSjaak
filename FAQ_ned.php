@@ -1,12 +1,3 @@
-<?php
-	include("connect_db.php");
-	$query = "SELECT `ID`, `Vraag`, `Antwoord` FROM `faq`";
-	
-	$result = mysql_query($query,$db) or die ("query fout op pagina".$query);
-	
-	
-?>
-
 FAQ NED
 <div id='FAQ'>
 <table>
@@ -21,24 +12,22 @@ FAQ NED
 		Antwoord
 	</th>
 	</tr>
-	<?php
-	while ($row = mysql_fetch_array($result))
-	{
-	echo			"<tr>
-						<td>
-							{$row['ID']}
-						</td>
-						
-						<td>
-							{$row['Vraag']}
-						</td>
-						
-						<td>
-							{$row['Antwoord']}
-						</td>
-					</tr>";
-	}
-	?>
+	<tr>
+		<td>
+			1
+		</td>
+	</tr>
+	<tr>
+		<td>
+			Hoe moet ik een opdracht plaatsen?
+		</td>
+	</tr>
+	<tr>
+		<td>
+			u kunt een opdracht plaatsen door op de link opdracht plaatsen te klikken en hier de gevraagte gegevens invullen.
+		</td>
+	</tr>
+	
 
 </table>
 </div>

@@ -5,7 +5,7 @@
 	
 	if (LoginClass::check_email_password_exists($_GET['user_name'],$_GET['password']))
 	{
-	OrderClass::confirm_order($_GET['order_ID']);
+	OrderClass::confirm_order($_GET['order_id']);
 	echo "Uw order is succesvol bevestigt.";
 	header("refresh:4;url=index.php");
 	}

@@ -231,7 +231,7 @@
 			global $database;
 			$query="UPDATE `order` SET `cost` = '{$cost}' WHERE `order_id`='{$order_id}'";
 			$database->fire_query($query);
-			self::send_pricetag_email($order_id);
+			self::send_price_email($order_id);
 			echo "De prijs van de opdracht is weggeschreven naar de database. Er wordt een mailtje gestuurd naar de opdrachtgever.";
 			header("refresh:4;url=index.php?content=Orders");
 		}
@@ -302,7 +302,7 @@
 			$query = "UPDATE `order` SET `confirm_cost` = 'Yes' WHERE `order_id` = {$order_id}";
 			$database->fire_query($query);
 			echo "De prijs is bevestigt en u wordt door gestuurd naar de opdrachten pagina";
-			header("refresh:4;url=index.php?content=Orders");
+			header("refresh:4;url=index.php?content=Order_Customer");
 		}
 		
 		public static function confirm_paid_by_order_id($order_id)
@@ -311,7 +311,7 @@
 			$query = "UPDATE `order` SET `paid` = 'yes' WHERE `order_id` = ' {$order_id}'";
 			$database->fire_query($query);
 			echo "U heeft de betaling bevestigd. U wordt doorgestuurd naar de opdrachten pagina";
-			header("refresh:4;url=index.php?content=Order_customer");
+			header("refresh:4;url=index.php?content=Orders");
 		}
 		
 		public static function send_price_email($order_id)

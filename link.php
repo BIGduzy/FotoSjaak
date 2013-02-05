@@ -25,7 +25,9 @@
 							<a href='index.php?content=logout'>uitloggen</a>";	 
 				break;
 				
-				case 'Deceloper':
+				case 'Developer':
+					echo"
+					<a href='index.php?content=developer/selectors'>jquery</a>";
 				break;
 				default:
 				break;

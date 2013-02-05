@@ -1,0 +1,57 @@
+Date: Thu, 24 Jan 2013 11:30:18 +0100
+Subject: PrijsopgaveBloemen
+To: 
+X-PHP-Originating-Script: 0:OrderClass.php
+From: info@fotosjaak.nl
+Reply-To: info@fotosjaak.nl
+Cc: sjaak@fotosjaak.nl
+X-mailer: PHP/5.3.13
+MIME-version: 1.0
+Content-Type: text/html; charset=iso-8859-1
+
+Geachte heer/mevrouw <b>  </b><br /><br />
+						  Wij hebben de onderstaande order van u ontvangen.<br />
+						  <table border='1'>
+							<tr>
+								<td>Uw order-id</td>
+								<td>1</td>
+							</tr>
+							<tr>
+								<td>Korte omschrijving opdracht</td>
+								<td>Bloemen</td>
+							</tr>
+							<tr>
+								<td>Uitgebreide omschrijving opdracht</td>
+								<td>Bloemen in een woestijn</td>
+							</tr>
+							<tr>
+								<td>Opleveringsdatum</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Datum van het evenement</td>
+								<td></td>
+							</tr>
+							<tr>
+								<td>Uw foto's worden gemaakt in</td>
+								<td>blackAndWhite</td>
+							</tr>
+							<tr>
+								<td>Aantal foto's dat wordt gemaakt</td>
+								<td>600</td>
+							</tr>
+							<tr>
+								<td>Datum van de aanvraag</td>
+								<td>24-01-2013</td>
+							</tr>
+							<tr>
+								<td>Tijdstip van de aanvraag</td>
+								<td>11:27:59</td>
+							</tr>
+						  </table>
+						  Ik heb voor de bovenstaande opdracht een offerteprijs berekend van: 5000<br />
+						  U kunt via de website akkoord gaan met dit bedrag waarmee de transactie definitief is.<br />
+						  <br />
+						  Met vriendelijke groet,<br />
+						  <i>Sjaak de Vries</i><br />
+						  uw fotograaf
