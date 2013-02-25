@@ -54,6 +54,16 @@
 			//alert(width);
 		});
 		
+		$("#pict1").hover(
+			function(){
+				$(this).attr( {"src":"./developer/img/kameel.jpg","width": 150} );
+			},
+			function(){
+				$(this).attr( {"src":"./developer/img/rdhamster.jpg","width":200});
+			}
+		);
+		
+		
 		/*$("#pict1").mouseover(function(){
 			var width = $("#pict1").attr("width");
 			width = parseInt(width);

@@ -27,10 +27,20 @@
 				
 				case 'Developer':
 					echo"
-					<a href='index.php?content=developer/selectors'>jquery</a>";
+					<div id=test>
+					<a href='index.php?content=developer/selectors'>selector</a>
+					<a href='index.php?content=developer/image-attributes'>image</a>
+					<a href='index.php?content=developer/inserting'>inserting</a>
+					<a href='index.php?content=developer/addClass'>addClass</a>
+					<a href='index.php?content=developer/sliding'>sliding</a>
+					<a href='index.php?content=developer/animate'>animate</a>
+					<a href='index.php?content=developer/image_rotator'>image_rotator</a>
+					</div>
+					<a href='index.php?content=logout'>uitloggen</a>";
 				break;
 				default:
 				break;
+				
 		}
 		}
 		else
