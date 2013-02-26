@@ -34,6 +34,12 @@
 					<a href='index.php?content=developer/addClass'>addClass</a>
 					<a href='index.php?content=developer/sliding'>sliding</a>
 					<a href='index.php?content=developer/animate'>animate</a>
+					<a href='index.php?content=developer/kalender'>kalender</a>
+					<a href='index.php?content=developer/accordion'>accordion</a>
+					<a href='index.php?content=developer/slider'>slider</a>
+					<a href='index.php?content=developer/dialog'>dialog</a>
+					<a href='index.php?content=developer/modaldialogform'>modaldialogfrom</a>
+					<a href='index.php?content=developer/tab'>tab</a>
 					<a href='index.php?content=developer/image_rotator'>image_rotator</a>
 					</div>
 					<a href='index.php?content=logout'>uitloggen</a>";
