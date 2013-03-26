@@ -21,9 +21,19 @@
 	//Selecteer op het attribute class
 	//$("[class=red]").css("border", "2px solid purple");
 	//$("[id=selectors]").css("border", "2px solid pink");
-	//Selecteert een tag met als attrbuut class die als waarde opmaak in zich heeft
-	//$("[class~=opmaak_on]").css("border", "2px solid yellow");
-	$("[class|=opmaak]").css("border", "2px solid yellow");
+	//Selecteert een tag met als attrbuut class die als waarde opmaak heeft of als losstaand woord staat.
+	//$("[class~=opmaak]").css("border", "1px solid yellow");
+	//Als een class attribuut begint met het woord opmaak en gevolgd wordt door een hyphen (-) wordt het element geselecteerd
+	//$("[class|=opmaak]").css("border", "2px solid yellow");
+	//Selecteert een element met een attribuutwaarde van aak- dat zich bevindt in de waarde van het classattribuut.
+	//$("[class*=aak-]").css("border", "2px solid pink");
+	//Attribuut class moet beginnen met r45Y
+	//$("[class^=r45Y]").css("border", "6px solid brown");
+	//Attribuut moet eindigen op de waarde 34Y5T
+	//$("[class$=34Y5T]").css("border", "3px solid yellow");
+	//Selecteer alle p tags die niet het class attribuut met de waarde red hebben
+	//$("p[class!=red]").css("border", "4px solid orange");
+	$("[class$=T][id=2]").css("border", "3px solid grey");
  }); 
  //alert("De pagina is nog niet geladen");
 </script>
@@ -35,8 +45,3 @@
 	<li>vierde item</li>
 	<li class='opmaak_on'>vijfde item</li>
 </ul>
-<p class='red'>Eerste paragraaf</p>
-<p class='red'>tweede paragraaf</p>
-<p class='opmaak_on'>derde paragraaf</p>
-<p class='red'>vierde paragraaf</p>
-<p>vijfde paragraaf</p>

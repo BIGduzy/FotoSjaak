@@ -28,19 +28,23 @@
 				case 'Developer':
 					echo"
 					<div id=test>
-					<a href='index.php?content=developer/selectors'>selector</a>
-					<a href='index.php?content=developer/image-attributes'>image</a>
-					<a href='index.php?content=developer/inserting'>inserting</a>
-					<a href='index.php?content=developer/addClass'>addClass</a>
-					<a href='index.php?content=developer/sliding'>sliding</a>
-					<a href='index.php?content=developer/animate'>animate</a>
-					<a href='index.php?content=developer/kalender'>kalender</a>
 					<a href='index.php?content=developer/accordion'>accordion</a>
-					<a href='index.php?content=developer/slider'>slider</a>
+					<a href='index.php?content=developer/addClass'>addClass</a>
+					<a href='index.php?content=developer/animate'>animate</a>
+					<a href='index.php?content=developer/button'>button</a>
 					<a href='index.php?content=developer/dialog'>dialog</a>
-					<a href='index.php?content=developer/modaldialogform'>modaldialogfrom</a>
-					<a href='index.php?content=developer/tab'>tab</a>
+					<a href='index.php?content=developer/fading'>fading</a>
+					<a href='index.php?content=developer/filter'>filter</a>
 					<a href='index.php?content=developer/image_rotator'>image_rotator</a>
+					<a href='index.php?content=developer/image-attributes'>image-attributes</a>
+					<a href='index.php?content=developer/inserting'>inserting</a>
+					<a href='index.php?content=developer/kalender'>kalender</a>
+					<a href='index.php?content=developer/modaldialogform'>modaldialogform</a>
+					<a href='index.php?content=developer/selectors'>selectors</a>
+					<a href='index.php?content=developer/show-hide-selection'>show-hide-selection</a>
+					<a href='index.php?content=developer/slider'>slider</a>
+					<a href='index.php?content=developer/sliding'>sliding</a>
+					<a href='index.php?content=developer/tab'>tab</a>
 					</div>
 					<a href='index.php?content=logout'>uitloggen</a>";
 				break;
